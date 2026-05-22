@@ -1,0 +1,692 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ink: #1b1f4a;
+  --violet: #4b2fbf;
+  --v2: #6b4fd8;
+  --gold: #e8b840;
+  --cream: #faf9f6;
+  --off: #f0eeff;
+  --white: #fff;
+  --muted: #6b7090;
+  --border: rgba(75, 47, 191, 0.12);
+  --glow: rgba(75, 47, 191, 0.22);
+  --ease: cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--violet);
+  border-radius: 3px;
+}
+
+#pgbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--violet), var(--gold));
+  z-index: 9999;
+}
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.06;
+  animation: oF 22s ease-in-out infinite;
+}
+
+.o1 {
+  width: 600px;
+  height: 600px;
+  background: var(--violet);
+  top: -150px;
+  left: -150px;
+}
+
+.o2 {
+  width: 450px;
+  height: 450px;
+  background: var(--gold);
+  bottom: 50px;
+  right: -100px;
+  animation-delay: -9s;
+}
+
+@keyframes oF {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(30px, -40px);
+  }
+}
+
+.bc {
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 11px 0;
+}
+
+.bc-in {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.bc-in a {
+  color: var(--violet);
+  text-decoration: none;
+}
+
+.bc-in i {
+  font-size: 0.6rem;
+}
+
+/* PAGE HEADER */
+.page-header {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(145deg, #080a20, #1b1f4a 50%, #2a1b6a);
+  padding: 60px 0 90px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.page-header::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: var(--cream);
+  clip-path: polygon(0 70px, 100% 0, 100% 70px);
+  z-index: 2;
+}
+
+.ph-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 3;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: 24px;
+  padding: 5px 14px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  background: rgba(232, 184, 64, 0.12);
+  color: var(--gold);
+  border: 1px solid rgba(232, 184, 64, 0.25);
+}
+
+.ph-h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.12;
+  margin-bottom: 14px;
+}
+
+.ph-h1 em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.ph-rule {
+  width: 44px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--v2));
+  border-radius: 2px;
+  margin: 0 auto 16px;
+}
+
+.ph-sub {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+}
+
+/* SECTION WRAPPER */
+.sec {
+  position: relative;
+  z-index: 1;
+}
+
+.sec-in {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* BANNER IMAGE PLACEHOLDER */
+.banner-img {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(27, 31, 74, 0.14);
+  position: relative;
+  aspect-ratio: 1430/430;
+  background: linear-gradient(145deg, var(--ink), var(--violet));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.banner-img i {
+  font-size: 6rem;
+  opacity: 0.1;
+  color: #fff;
+  position: absolute;
+  z-index: 3;
+}
+
+.banner-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.8) 60%,
+    transparent
+  );
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 48px;
+}
+
+.banner-text {
+  position: relative;
+  z-index: 1;
+}
+
+.banner-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.banner-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.banner-title em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* SECTION DIVIDERS */
+.sec-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 60px 32px 0;
+}
+
+.sd-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.sd-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 8px 18px;
+  font-family: "Cinzel", serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink);
+  box-shadow: 0 4px 14px rgba(27, 31, 74, 0.05);
+  white-space: nowrap;
+}
+
+.sd-chip i {
+  color: var(--violet);
+}
+
+/* SPLIT LAYOUT */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  padding: 48px 0 80px;
+}
+
+.split.three-col {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+/* PRAYER TEXT BLOCK */
+.prayer-block {
+  background: linear-gradient(145deg, var(--off), var(--white));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: var(--shadow, 0 8px 40px rgba(27, 31, 74, 0.08));
+}
+
+.prayer-block-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.prayer-block-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--violet), var(--v2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px var(--glow);
+}
+
+.prayer-block-icon i {
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.prayer-block-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.prayer-block-sub {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.prayer-text {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.02rem;
+  font-style: italic;
+  line-height: 1.85;
+  color: #3a3d5c;
+  border-left: 3px solid var(--gold);
+  padding-left: 20px;
+  margin: 20px 0;
+  background: rgba(232, 184, 64, 0.04);
+  padding: 20px 20px 20px 22px;
+  border-radius: 0 12px 12px 0;
+}
+
+.prayer-action-note {
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: rgba(75, 47, 191, 0.04);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+/* FORM CARD */
+.form-card {
+  background: var(--white);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  padding: 36px;
+  box-shadow: 0 8px 40px rgba(27, 31, 74, 0.07);
+}
+
+.form-card-title {
+  font-family: "Cinzel", serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.form-card-title i {
+  color: var(--violet);
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.88rem;
+  color: var(--ink);
+  outline: none;
+  background: var(--off);
+  transition: all 0.22s;
+}
+
+.form-input:focus {
+  border-color: var(--violet);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(75, 47, 191, 0.08);
+}
+
+.form-input::placeholder {
+  color: rgba(107, 112, 144, 0.5);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+select.form-input {
+  cursor: pointer;
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--violet), var(--v2));
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  transition: all 0.25s;
+  box-shadow: 0 6px 22px var(--glow);
+  margin-top: 6px;
+  letter-spacing: 0.04em;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px var(--glow);
+}
+
+.submit-btn.gold-btn {
+  background: linear-gradient(135deg, var(--gold), #f5a623);
+  color: var(--ink);
+  box-shadow: 0 6px 22px rgba(232, 184, 64, 0.35);
+}
+
+.submit-btn.gold-btn:hover {
+  box-shadow: 0 14px 36px rgba(232, 184, 64, 0.5);
+}
+
+/* CONTACT DETAILS */
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.connect-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  transition: all 0.25s;
+}
+
+.connect-item:hover {
+  border-color: rgba(75, 47, 191, 0.3);
+  transform: translateX(5px);
+  box-shadow: 0 8px 24px rgba(75, 47, 191, 0.1);
+}
+
+.ci-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--violet), var(--v2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px var(--glow);
+}
+
+.ci-icon i {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.ci-info {
+}
+
+.ci-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 4px;
+}
+
+.ci-value {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.ci-value a {
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.ci-value a:hover {
+  color: var(--violet);
+}
+
+.social-connect {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 20px 0 0;
+}
+
+.sc-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.25s;
+}
+
+.sc-btn:hover {
+  background: var(--violet);
+  color: #fff;
+  border-color: var(--violet);
+  transform: translateY(-3px);
+}
+
+/* REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.75s var(--ease),
+    transform 0.75s var(--ease);
+}
+
+.reveal.vis {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-l {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition:
+    opacity 0.75s var(--ease),
+    transform 0.75s var(--ease);
+}
+
+.reveal-l.vis {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-r {
+  opacity: 0;
+  transform: translateX(32px);
+  transition:
+    opacity 0.75s var(--ease),
+    transform 0.75s var(--ease);
+}
+
+.reveal-r.vis {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.d1 {
+  transition-delay: 0.12s;
+}
+
+.d2 {
+  transition-delay: 0.24s;
+}
+
+.shadow {
+  box-shadow: 0 8px 40px rgba(27, 31, 74, 0.1);
+}
+
+@media (max-width: 900px) {
+  .split,
+  .split.three-col {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .bc-in,
+  .ph-inner,
+  .sec-in,
+  .sec-divider {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .split {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .banner-img-overlay {
+    padding: 20px 22px;
+  }
+}
